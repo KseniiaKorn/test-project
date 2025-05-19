@@ -2,12 +2,10 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    /* justify-content: center; */
-    min-width: 320px;
     height: 100vh;
+    width: 100vw;
     background: linear-gradient(180deg, #294045 0%, #1e2f33 100%);
     margin: 0 auto;
-    position: relative
 }
 
 .wrap {
@@ -18,27 +16,16 @@
     border-radius: 16px;
     padding: 16px;
     width: 280px;
-    height: 100%;
+    height: 528px;
     background: #508f8c;
     box-sizing: border-box;
     margin-top: 20px;
     margin-bottom: 20px;
-}
-
-.iconWallet {
-    width: 46px;
-    height: 36px;
-    fill: #081222;
-    margin: 8px 18px 8px 16px;
+    position: relative;
 }
 
 .logo {
-    font-family: "Poppins", sans-serif;
-    font-weight: 700;
-    font-size: 30px;
-    text-align: center;
-    color: #081222;
-    margin-top: 0px;
+    width: 182px;
     margin-bottom: 16px;
 }
 
@@ -64,8 +51,14 @@
     font-weight: 500;
     font-size: 18px;
     color: #081222;
-    background: #508f8c;
+    background: transparent;
     outline: none;
+}
+
+.inputWrap input:-webkit-autofill {
+    -webkit-box-shadow: 0 0 0px 1000px transparent inset !important;
+    -webkit-text-fill-color: #081222 !important;
+    transition: background-color 5000s ease-in-out 0s;
 }
 
 .inputWrap input::placeholder {
@@ -110,7 +103,7 @@
     text-align: center;
     color: #fcfcfc;
     cursor: pointer;
-    transition: all 0.3s ease;
+    transition: background 0.3s ease, box-shadow 0.2s ease-in-out;
 }
 
 .buttonLog:hover,
@@ -127,7 +120,7 @@
     flex-direction: row;
     gap: 8px;
     border: 1px solid #081222;
-    background: #508f8c;
+    background: transparent;
     border-radius: 8px;
     width: 248px;
     height: 44px;
@@ -136,7 +129,7 @@
     text-align: center;
     color: #081222;
     cursor: pointer;
-    transition: all 0.3s ease;
+    transition: background 0.3s ease, box-shadow 0.2s ease-in-out;
 }
 
 .registerBtn:hover,
@@ -150,15 +143,61 @@
 
 .walletImage {
     width: 159px;
-    position: absolute;
-    right: 32px;
-    bottom: 43px;
     height: auto;
+    position: absolute;
+    bottom: 23px;
+    left: 200px;
+    transform: translateX(-50%);
 }
 
 .error {
+    position: absolute;
+    bottom: -12px;
+    left: 0;
     color: red;
     font-size: 12px;
+    line-height: 1;
+    pointer-events: none;
+    white-space: nowrap;
+}
+
+
+.inputWrap:hover input {
+    border-color: #38585e;
+}
+
+.inputWrap:hover .icon {
+    fill: #38585e;
+}
+
+.inputWrap:hover input::placeholder {
+    color: #38585e;
+}
+
+
+.inputWrap input:focus {
+    border-color: #0b6016;
+}
+
+.inputWrap input:focus~.icon {
+    fill: #0b6016;
+}
+
+.inputWrap input:focus::placeholder {
+    color: #0b6016;
+}
+
+
+.inputWrap input.errorInput {
+    border-color: #b20202;
+}
+
+.inputWrap input.errorInput~.icon {
+    fill: #b20202;
+}
+
+.inputWrap input.errorInput::placeholder {
+    color: #b20202;
 }
 
 @media only screen and (min-width: 768px) {
@@ -174,6 +213,7 @@
 
     .logo {
         margin-bottom: 37px;
+        margin-top: 53px;
     }
 
     .inputContainer {
@@ -197,10 +237,19 @@
         width: 410px;
     }
 
-    .walletImage {
+    /* .walletImage {
         width: 320px;
         right: 1px;
         bottom: 58px;
+    } */
+
+    .walletImage {
+        position: absolute;
+        bottom: -292px;
+        left: 490px;
+        transform: translateX(-50%);
+        width: 320px;
+        height: auto;
     }
 }
 
@@ -217,5 +266,11 @@
     .iconWallet {
         margin-top: 53px;
     }
+
+        .walletImage {
+            bottom: -91px;
+            left: 730px;
+        }
+        
 
 }

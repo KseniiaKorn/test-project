@@ -5,11 +5,16 @@ import * as Yup from "yup";
 import toast from "react-hot-toast";
 import s from './LoginForm.module.css'
 import { loginThunk } from '../../redux/auth/operations';
-import SvgIcon from '../SvgIcon';
 
 const validationSchema = Yup.object().shape({
-    email: Yup.string().max(64).email('Invalid email').required('Email is required'),
-    password: Yup.string().min(8).max(64).required('Password is required'),
+    email: Yup.string()
+        .max(64, 'Max 64 characters')
+        .email('Invalid email')
+        .required('Email is required'),
+    password: Yup.string()
+        .min(8, 'Min 8 characters')
+        .max(64, 'Max 64 characters')
+        .required('Password is required'),
 });
 
 const LoginForm = () => {
@@ -32,10 +37,7 @@ const LoginForm = () => {
     return (
         <div className={s.container}>
             <div className={s.wrap}>
-                <span>
-                    <SvgIcon iconId="icon-Wallet" className={s.iconWallet} />
-                </span>
-                <h1 className={s.logo}>Spendy</h1>
+                <img src="/src/images/logo.svg" className={s.logo} />
                 <Formik
                     initialValues={{ email: '', password: '' }}
                     validationSchema={validationSchema}
@@ -43,38 +45,62 @@ const LoginForm = () => {
                 >
                     <Form className={s.form}>
                         <div className={s.inputContainer}>
-                            <div className={s.inputWrap}>
-                                <Field
-                                    name="email"
-                                    type="email"
-                                    placeholder="E-mail"
-                                    className={s.input} />
-                                <SvgIcon iconId="icon-Email" className={s.icon} />
-                            </div>
-                            <ErrorMessage name="email" component="span" className={s.error} />
+                            <Field name="email">
+                                {({ field, meta }) => (
+                                    <div className={s.inputWrap}>
+                                        <input
+                                            {...field}
+                                            type="email"
+                                            placeholder="E-mail"
+                                            className={
+                                                meta.touched && meta.error
+                                                    ? `${s.input} ${s.errorInput}`
+                                                    : s.input
+                                            }
+                                        />
+                                        <svg width="24" height="24" className={s.icon}>
+                                            <use href="/icons.svg#icon-email"></use>
+                                        </svg>
+                                        {meta.touched && meta.error && (
+                                            <span className={s.error}>{meta.error}</span>
+                                        )}
+                                    </div>
+                                )}
+                            </Field>
                         </div>
 
                         <div className={s.inputContainer}>
-                            <div className={s.inputWrap}>
-                                <Field
-                                    name="password"
-                                    type="password"
-                                    placeholder="Password"
-                                    className={s.input} />
-                                <SvgIcon iconId="icon-Lock" className={s.icon} />
-                            </div>
-                            <ErrorMessage name="password" component="div" className={s.error} />
+                            <Field name="password">
+                                {({ field, meta }) => (
+                                    <div className={s.inputWrap}>
+                                        <input
+                                            {...field}
+                                            type="password"
+                                            placeholder="Password"
+                                            className={
+                                                meta.touched && meta.error
+                                                    ? `${s.input} ${s.errorInput}`
+                                                    : s.input
+                                            }
+                                        />
+                                        <svg width="24" height="24" className={s.icon}>
+                                            <use href="/icons.svg#icon-lock"></use>
+                                        </svg>
+                                        {meta.touched && meta.error && (
+                                            <span className={s.error}>{meta.error}</span>
+                                        )}
+                                    </div>
+                                )}
+                            </Field>
                         </div>
 
                         <div className={s.button}>
                             <button type="submit" className={s.buttonLog}>Log in</button>
-                            <Link to="/register" className={s.registerBtn}>
-                                Register
-                            </Link>
+                            <Link to="/register" className={s.registerBtn}>Register</Link>
                         </div>
                     </Form>
                 </Formik>
-                <img src="/public/images/wallet.png" alt="Wallet" className={s.walletImage} />
+                <img src="/src/images/background-picture/img-bg-log.png" alt="Wallet" className={s.walletImage} />
             </div>
         </div>
     );
