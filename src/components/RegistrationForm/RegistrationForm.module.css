@@ -1,0 +1,265 @@
+.backdrop {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: var(--bg-dark);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 10;
+    overflow: visible;
+}
+
+.container {
+    width: 288px;
+    padding: 16px;
+    background: #508f8c;
+    border-radius: 8px;
+    box-sizing: content-box;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.logo {
+    width: 182px;
+    margin-bottom: 24px;
+}
+
+.label {
+    width: 100%;
+    margin-bottom: 16px;
+    display: block;
+}
+
+.inputWrapper {
+    display: flex;
+    align-items: center;
+    position: relative;
+    max-width: 100%;
+    width: calc(100% - 32px);
+    margin: 0 auto;
+    border: 1px solid #081222;
+    border-radius: 8px;
+    background-color: transparent;
+    height: 44px;
+}
+
+.icon {
+    width: 24px;
+    height: 24px;
+    margin-left: 16px;
+    flex-shrink: 0;
+    fill: #081222;
+    flex-shrink: 0;
+}
+
+.field {
+    flex: 1;
+    height: 100%;
+    padding: 0 16px;
+    font-family: "Inter", sans-serif;
+    font-weight: 500;
+    font-size: 18px;
+    color: #081222;
+    background: transparent;
+    border: none;
+    outline: none;
+}
+
+.field::placeholder {
+    color: #081222;
+}
+
+.inputWrapper.error {
+    border-color: #b20202;
+}
+
+.inputWrapper.error .icon {
+    fill: #b20202;
+}
+
+.inputWrapper.error .field {
+    color: #b20202;
+}
+
+.inputWrapper.error .field::placeholder {
+    color: #b20202;
+}
+
+.inputWrapper:not(.error):hover {
+    border-color: #38585e;
+}
+
+.inputWrapper:has(.field:focus) {
+    border-color: #0b6016;
+}
+
+.inputWrapper:not(.error):hover .icon {
+    fill: #38585e;
+}
+
+.inputWrapper:has(.field:focus) .icon {
+    fill: #0b6016;
+}
+
+.inputWrapper:not(.error):hover input {
+    color: #081222;
+}
+
+.inputWrapper:has(.field:focus) input {
+    color: #081222;
+}
+
+.inputWrapper:not(.error):hover .field::placeholder {
+    color: #38585e;
+}
+
+.inputWrapper:has(.field:focus) .field::placeholder {
+    color: #0b6016;
+}
+
+.buttonRegisrer {
+    display: block;
+    border-radius: 8px;
+    padding: 11px 79px;
+    max-width: 100%;
+    width: calc(100% - 32px);
+    margin: 0 auto;
+    height: 44px;
+    background: linear-gradient(180deg, #355359 0%, #3b5d63 100%);
+    color: white;
+    font-weight: 500;
+    font-size: 18px;
+    border: none;
+    cursor: pointer;
+    margin-bottom: 16px;
+}
+
+.buttonRegisrer:hover,
+.buttonRegisrer:focus {
+    background: linear-gradient(180deg, #3b5d63 0%, #476c73 100%);
+    box-shadow: 0 0 6px rgba(255, 255, 255, 0.3);
+
+    outline: none;
+}
+
+.buttonLogin {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: row;
+    gap: 8px;
+    border: 1px solid #081222;
+    border-radius: 8px;
+    padding: 11px 68px;
+    max-width: 100%;
+    width: calc(100% - 32px);
+    margin: 0 auto;
+    height: 44px;
+    background-color: transparent;
+    color: #081222;
+    font-weight: 500;
+    font-size: 18px;
+    cursor: pointer;
+}
+
+.buttonLogin:hover,
+.buttonLogin:focus {
+    background: #4a837f;
+    border-color: #294045;
+    color: #000;
+
+    border: 2px solid #081222;
+    box-shadow: 0 0 6px rgba(8, 18, 34, 0.3);
+    outline: none;
+}
+
+.picture {
+    display: none;
+}
+
+.error {
+    color: #b20202;
+    text-align: start;
+}
+
+@media (min-width: 768px) {
+    .container {
+        overflow: visible;
+        box-sizing: border-box;
+        width: 533px;
+        padding: 32px 69px 50px 55px;
+        position: relative;
+    }
+
+    .container::before {
+        content: "";
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        top: 520px;
+        left: 162px;
+        background-image: url("/background-picture/picture1.png");
+        background-repeat: no-repeat;
+        background-size: 320px 239px;
+        background-position: 100px 100px;
+        z-index: 50;
+        pointer-events: none;
+    }
+
+    .logo {
+        margin-bottom: 32px;
+    }
+
+    .label {
+        width: 100%;
+        margin-bottom: 24px;
+    }
+
+    .inputWrapper {
+        width: 100%;
+    }
+
+    .buttonRegisrer {
+        width: 409px;
+        max-width: 100%;
+        margin: 0 auto;
+        margin-top: 56px;
+        margin-bottom: 24px;
+    }
+
+    .buttonLogin {
+        max-width: 100%;
+        width: 100%;
+    }
+
+    @media (min-width: 1280px) {
+        .container::before {
+            content: "";
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            top: 280px;
+            left: 430px;
+            background-image: url("/background-picture/picture2.png");
+            background-repeat: no-repeat;
+            background-size: 320px 239px;
+            background-position: 100px 100px;
+            z-index: 50;
+            pointer-events: none;
+        }
+    }
+}
+
+.field:-webkit-autofill,
+.field:-webkit-autofill:hover,
+.field:-webkit-autofill:focus,
+.field:-webkit-autofill:active {
+    width: 100%;
+    -webkit-box-shadow: 0 0 0 10000px #508f8c inset !important;
+    -webkit-text-fill-color: #081222 !important;
+    transition: background-color 9999s ease-in-out 0s;
+}

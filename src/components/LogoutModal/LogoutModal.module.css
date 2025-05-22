@@ -1,0 +1,64 @@
+.overlay {
+    background: rgba(59, 93, 99, 0.4);
+    position: fixed;
+    inset: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.modal {
+    background-color: var(--light-green);
+    padding: 16px;
+    border-radius: 16px;
+    width: 280px;
+    height: 312px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+    outline: none;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    box-sizing: border-box;
+
+    @media (min-width: 768px) {
+        padding: 53px 62px 47px;
+        width: 533px;
+        height: 387px;
+    }
+}
+
+.content {
+    display: flex;
+    width: 100%;
+    flex-direction: column;
+    gap: 16px;
+
+    @media (min-width: 768px) {
+        gap: 21px;
+    }
+}
+
+.icon {
+    margin: 0 auto;
+
+    @media (min-width: 768px) {
+        margin-bottom: 17px;
+    }
+}
+
+.message {
+    width: 196px;
+    text-align: center;
+    color: var(--color-black);
+    font-family: Inter;
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    margin: 0 auto;
+
+    @media (min-width: 768px) {
+        width: 100%;
+        margin-bottom: 3px;
+    }
+}

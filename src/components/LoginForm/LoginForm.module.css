@@ -152,10 +152,11 @@
 
 .error {
     position: absolute;
-    bottom: -12px;
+    bottom: -14px;
     left: 0;
-    color: red;
-    font-size: 12px;
+    color: #b20202;
+    font-weight: 400;
+    font-size: 14px;
     line-height: 1;
     pointer-events: none;
     white-space: nowrap;

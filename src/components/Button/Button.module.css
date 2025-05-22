@@ -1,0 +1,21 @@
+.button {
+    width: 100%;
+    padding: 11px;
+    border: 1px solid var(--main-Black, var(--color-black));
+    border-radius: 8px;
+    color: var(--color-black);
+    text-align: center;
+    font-family: Inter;
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+    transition: background 0.3s ease, color 0.3s ease, border 0.3s ease;
+
+    &:hover,
+    &:focus {
+        background: var(--bg-lighter);
+        color: var(--white);
+        border: none;
+    }
+}
